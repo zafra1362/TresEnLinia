@@ -41,9 +41,10 @@ public class Controller {
     }
 
     //Defino las casillas y los turnos
-    private int numero = 0;
-    private boolean turn = true;
-    private int numeroturnos = 0;
+     int numero = 0;
+     int numeroturnos = 0;
+     boolean turno = true;
+
 
     //Limpio,activo y desactivo los botones.
     public void limpiar() {
@@ -112,20 +113,20 @@ public class Controller {
         estadisticas.setVisible(true);
         empezar.setVisible(false);
         while (!boton1) {
-            int rNum = (int) (Math.random() * 9);
-            boton = buttons.get(rNum);
+            int numerorandom = (int) (Math.random() * 9);
+            boton = buttons.get(numerorandom);
             if ("".equals(boton.getText())) {
 
-                if (turn) {
+                if (turno) {
                     estadisticas.setText("Turno de: O");
                     boton.setText("X");
                     if (comprobarGanador()) break;
-                    turn = false;
+                    turno = false;
                 } else {
                     estadisticas.setText("Turno de: X");
                     boton.setText("O");
                     if (comprobarGanador()) break;
-                    turn = true;
+                    turno = true;
                 }
                 boton1 = true;
             }
@@ -173,19 +174,19 @@ public class Controller {
         Button boton = (Button) actionEvent.getSource();
         empezar.setVisible(false);
         estadisticas.setVisible(true);
-        if (turn) {
+        if (turno) {
             estadisticas.setText(player2 + " tu turno.");
             if (boton.getText().equals("")) {
                 boton.setText("X");
                 comprobarGanador();
-                turn = false;
+                turno = false;
             }
         } else {
             estadisticas.setText(jugador1 + " tu turno.");
             if (boton.getText().equals("")) {
                 boton.setText("O");
                 comprobarGanador();
-                turn = true;
+                turno = true;
             }
         }
 
