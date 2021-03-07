@@ -1,9 +1,8 @@
 package sample;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.event.ActionEvent;
 import java.util.*;
 
 public class Controller {
